@@ -1,0 +1,7 @@
+{
+  "name": "CustomerClient",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
