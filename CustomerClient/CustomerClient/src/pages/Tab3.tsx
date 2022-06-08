@@ -18,6 +18,16 @@ const Tab3: React.FC = () => {
         
         <IonCard>
           <IonCardHeader>
+            <IonCardTitle>Defaults</IonCardTitle>
+          </IonCardHeader>
+          
+          <IonCardContent>
+            Coming Soon
+          </IonCardContent>
+        </IonCard>
+
+        <IonCard>
+          <IonCardHeader>
             <IonCardTitle>About</IonCardTitle>
           </IonCardHeader>
           

@@ -68,38 +68,27 @@ const Confirmed: React.FC = () => {
         <IonCard>
           <IonCardHeader>
             <IonCardTitle>
-              Order Details:
+              Order Submitted
             </IonCardTitle>
+            <IonCardSubtitle>
+              your order was submitted:
+            </IonCardSubtitle>
+
             </IonCardHeader>
             <IonCardContent>
-
-            <IonItem>
-              <IonLabel>Coffee:</IonLabel>
-              <IonLabel className='ion-text-right'>{orderData.coffee}</IonLabel>
-            </IonItem>
-            <form onSubmit={handleSubmit(onSubmit)}>
-            <IonItem>
-              <IonLabel>Quantity:</IonLabel>
-              <IonInput type="number" {...register("quantity")}/>
-            </IonItem>
-            <IonItem>
-            <IonLabel>Milk Type</IonLabel>
-            <IonSelect interface="popover" {...register("milk")}>
-              <IonSelectOption value="Standard">Standard</IonSelectOption>
-              <IonSelectOption value="Skim">Skim</IonSelectOption>
-            </IonSelect> 
-          </IonItem>
-          <IonItem>
-            <IonLabel>Shot</IonLabel>
-            <IonSelect interface="popover" {...register("shot")}>
-                <IonSelectOption value="Single">Single</IonSelectOption>
-                <IonSelectOption value="Double">Double</IonSelectOption>
-            </IonSelect> 
-          </IonItem>
-            <IonButton expand="block" type="submit" >Continue</IonButton>
-          </form>
-
-          <IonButton expand="block" color="danger" onClick={returnToMenu}>Cancel</IonButton>
+            <IonList>
+              <IonItem>
+                <IonLabel>{orderData.quantity}x {orderData.coffee}</IonLabel>
+              </IonItem>
+              <IonItem>
+                <IonLabel>{orderData.milk} milk</IonLabel>
+              </IonItem>
+              <IonItem>
+                <IonLabel>{orderData.shot} shot</IonLabel>
+              </IonItem>
+            </IonList>
+            
+            <IonButton expand="block" onClick={returnToMenu}>Back to Menu</IonButton>
 
             </IonCardContent>
 
