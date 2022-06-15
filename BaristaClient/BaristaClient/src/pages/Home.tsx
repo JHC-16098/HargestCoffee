@@ -63,7 +63,7 @@ class Home extends Component {
 
 componentDidMount() {
   this.getOrders();
-  setInterval(this.getOrders, 5000);
+  setInterval(this.getOrders, 500);
 }
 
 
@@ -72,7 +72,9 @@ componentDidMount() {
     <IonContent>
       <IonHeader>
         <IonToolbar color="dark">
+          <img className='headerImg' slot='start' height='60px' src={require('./HARGESTCOFFEE_NOTEXT.png')}/>
           <IonTitle>JHC Coffee Company</IonTitle>
+          
         </IonToolbar>
         
       </IonHeader>

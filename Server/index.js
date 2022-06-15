@@ -78,6 +78,7 @@ app.post('/submit', (req, res) => {
     values = [req.body.name, req.body.coffee, req.body.quantity, req.body.milk, req.body.shot, 0];
     console.log("Submitting Order: "+values);
     pool.query('INSERT INTO orders(name, coffee, quantity, milk, shot, status) VALUES($1, $2, $3, $4, $5, $6)', values);
+    
 })
 
 app.post('/update', (req, res) => {
@@ -85,6 +86,10 @@ app.post('/update', (req, res) => {
     var updateData = [req.body.id, req.body.status];
     console.log("Updating Order: "+ updateData[0] + " To Status: " + updateData[1]);
     pool.query("UPDATE orders SET status=$2 WHERE id=$1", updateData);
+})
+
+app.post('/step', (req,res) => {
+    
 })
 
 const server = app.listen(3000, function () {

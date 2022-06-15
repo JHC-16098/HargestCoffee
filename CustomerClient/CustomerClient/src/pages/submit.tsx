@@ -23,11 +23,12 @@ interface IFormInput {
   quantity: number;
   milk: MilkEnum;
   shot: ShotEnum;
+  name: string;
 }
 
 const Submit: React.FC = () => {
   
-  const { control, register, handleSubmit, formState } = useForm<IFormInput>();
+  const { control, register, handleSubmit, formState: { errors }} = useForm<IFormInput>();
   const history = useHistory();
 
   const location: any = useLocation();
@@ -44,7 +45,8 @@ const Submit: React.FC = () => {
       coffee: orderData.coffee,
       quantity: data.quantity,
       milk: data.milk,
-      shot: data.shot
+      shot: data.shot,
+      name: data.name
     }
     history.push({
       pathname: '/tab1/submit/confirmed',
@@ -76,6 +78,9 @@ const Submit: React.FC = () => {
             <IonCardTitle>
               Order Details:
             </IonCardTitle>
+            <IonCardSubtitle className="errorText">
+            {errors.name && errors.name.type === "required" && <span>Fields marked with * are required</span>}
+            </IonCardSubtitle>
             </IonCardHeader>
             <IonCardContent>
 
@@ -86,21 +91,29 @@ const Submit: React.FC = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
             <IonItem>
               <IonLabel>Quantity:</IonLabel>
-              <IonInput type="number" {...register("quantity")}/>
+              <IonInput className='ion-text-right' type="number" {...register("quantity", {required: true, maxLength: 4 })}/>
+              {errors.name && errors.name.type === "required" && <span className='errorText'>*</span>}
             </IonItem>
             <IonItem>
             <IonLabel>Milk Type</IonLabel>
-            <IonSelect interface="popover" {...register("milk")}>
-              <IonSelectOption value="Standard">Standard</IonSelectOption>
+            <IonSelect interface="popover" {...register("milk", {required: true})}>
+              <IonSelectOption value="Standard">Blue</IonSelectOption>
               <IonSelectOption value="Skim">Skim</IonSelectOption>
-            </IonSelect> 
+            </IonSelect>
+            {errors.name && errors.name.type === "required" && <span className='errorText'>*</span>} 
           </IonItem>
           <IonItem>
             <IonLabel>Shot</IonLabel>
-            <IonSelect interface="popover" {...register("shot")}>
+            <IonSelect interface="popover" {...register("shot", {required: true})}>
                 <IonSelectOption value="Single">Single</IonSelectOption>
                 <IonSelectOption value="Double">Double</IonSelectOption>
-            </IonSelect> 
+            </IonSelect>
+            {errors.name && errors.name.type === "required" && <span className='errorText'>*</span>} 
+          </IonItem>
+          <IonItem>
+            <IonLabel>Name</IonLabel>
+            <IonInput className='ion-text-right' {...register("name", { required: true })}></IonInput>
+            {errors.name && errors.name.type === "required" && <span className='errorText'>*</span>}
           </IonItem>
             <IonButton expand="block" type="submit" >Continue</IonButton>
           </form>

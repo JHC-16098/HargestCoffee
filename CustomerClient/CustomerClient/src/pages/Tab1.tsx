@@ -20,35 +20,29 @@ const Tab1: React.FC = () => {
   const history = useHistory();
 
 
-  const onSubmit: SubmitHandler<IFormInput> = data => {
+  const submitFlatWhite: SubmitHandler<IFormInput> = data => {
     console.log(data);
     
     history.push({
       pathname: '/tab1/submit',
-      state: { detail: JSON.stringify(data) }
+      state: { detail: JSON.stringify({"coffee":"Flat Wite"}) }
     
     });
+  
 
-    /*
-    var jsonToSend = {
-      "name": "test",
-      "coffee": "Flat White",
-      "quantity": data.quantity,
-      "milk": data.milk,
-      "shot": data.shot
-    }
     
-    
-
-    fetch('http://localhost:3000/submit', {
-      method: 'POST',
-      mode: 'cors',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(jsonToSend)
-    })
-    */
     
   };
+
+  const submitMochaccino: SubmitHandler<IFormInput> = data => {
+      console.log(data);
+      
+      history.push({
+        pathname: '/tab1/submit',
+        state: { detail: JSON.stringify({"coffee":"Mochaccino"}) }
+      
+      });
+    };
 
 
   return (
@@ -73,7 +67,7 @@ const Tab1: React.FC = () => {
             <IonCardSubtitle>$4</IonCardSubtitle>
           </IonCardHeader>
           </IonItem>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(submitFlatWhite)}>
             <input type='hidden' value="Flat White" {...register("coffee")}/> 
             <IonButton expand="block" type="submit" >Select</IonButton>
           </form>
@@ -87,7 +81,7 @@ const Tab1: React.FC = () => {
             <IonCardSubtitle>$4</IonCardSubtitle>
           </IonCardHeader>
           </IonItem>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(submitMochaccino)}>
             <input type='hidden' value="Mochaccino" {...register("coffee")}/> 
             <IonButton expand="block" type="submit" >Select</IonButton>
           </form>

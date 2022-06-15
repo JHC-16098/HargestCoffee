@@ -36,15 +36,15 @@ const Confirmed: React.FC = () => {
 
   useEffect(() => {
     console.log("DataHere: " + JSON.stringify(orderData));
+    
+    fetch('http://localhost:3000/submit', {
+          method: 'POST',
+          mode: 'cors',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(orderData)
+        })
+    
   }) 
-
-  const onSubmit: SubmitHandler<IFormInput> = data => {
-    console.log(data);
-    history.push({
-      pathname: '/finalised',
-      state: {detail: JSON.stringify(data)}
-    })
-  };
 
   const returnToMenu = () => {
     history.push({
