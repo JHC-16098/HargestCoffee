@@ -6,29 +6,11 @@ import { useLocation } from "react-router-dom";
 import { Controller, useForm, SubmitHandler } from 'react-hook-form';
 import { useHistory } from "react-router";
 
-enum MilkEnum {
-  standard = "Standard",
-  skim = "Skim"
-}
-
-
-enum ShotEnum {
-  single = "Single",
-  double = "Double"
-}
-
-
-
-interface IFormInput {
-  quantity: number;
-  milk: MilkEnum;
-  shot: ShotEnum;
-}
 
 const Confirmed: React.FC = () => {
   
-  const { control, register, handleSubmit, formState } = useForm<IFormInput>();
   const history = useHistory();
+  const url = 'http://localhost:3000';
 
   const location: any = useLocation();
   var orderData:any;
@@ -37,7 +19,7 @@ const Confirmed: React.FC = () => {
   useEffect(() => {
     console.log("DataHere: " + JSON.stringify(orderData));
     
-    fetch('http://localhost:3000/submit', {
+    fetch( url+'/submit', {
           method: 'POST',
           mode: 'cors',
           headers: {'Content-Type': 'application/json'},
@@ -51,6 +33,23 @@ const Confirmed: React.FC = () => {
       pathname: '/tab1'
     })
   };
+
+  var orderTime;
+  var responseJSON = {'count':''};
+
+  const getTime = () => {
+    fetch(url+'/eta')
+    .then(res => res.json())
+    .then((data => {
+      responseJSON.count = data[0].count
+      console.log(responseJSON.count);
+    }));
+    
+  };
+
+  useEffect(() => {
+    getTime();
+  })
   
   return (
     <IonPage>
@@ -71,7 +70,7 @@ const Confirmed: React.FC = () => {
               Order Submitted
             </IonCardTitle>
             <IonCardSubtitle>
-              your order was submitted:
+              Your order was submitted:
             </IonCardSubtitle>
 
             </IonCardHeader>
@@ -92,6 +91,14 @@ const Confirmed: React.FC = () => {
 
             </IonCardContent>
 
+        </IonCard>
+
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>
+              Estimated Time: {responseJSON.count} minutes
+            </IonCardTitle>
+          </IonCardHeader>
         </IonCard>
         
       </IonContent>

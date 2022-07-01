@@ -10,8 +10,7 @@ const Pool = require('pg').Pool;
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
-    database: 'coffee_testing',
-    password: 'daMp6era',
+    database: 'orders',
     dialect: 'postgres',
     port: 5432
 });
@@ -88,8 +87,13 @@ app.post('/update', (req, res) => {
     pool.query("UPDATE orders SET status=$2 WHERE id=$1", updateData);
 })
 
-app.post('/step', (req,res) => {
-    
+app.get('/eta', (req, res, next) => {
+    //console.log("Testing Data: ");
+    pool.query('SELECT COUNT( * ) FROM orders WHERE status=1')
+        .then(testData => {
+            console.log(testData.rows);
+            res.send(testData.rows);
+        })
 })
 
 const server = app.listen(3000, function () {

@@ -44,6 +44,47 @@ const Tab1: React.FC = () => {
       });
     };
 
+    const submitHotChocolate: SubmitHandler<IFormInput> = data => {
+      console.log(data);
+      
+      history.push({
+        pathname: '/tab1/submit',
+        state: { detail: JSON.stringify({"coffee":"Hot Chocolate"}) }
+      
+      });
+    };
+
+    const submitCappuccino: SubmitHandler<IFormInput> = data => {
+      console.log(data);
+      
+      history.push({
+        pathname: '/tab1/submit',
+        state: { detail: JSON.stringify({"coffee":"Cappuccino"}) }
+      
+      });
+    };
+
+    const submitLongBlack: SubmitHandler<IFormInput> = data => {
+      console.log(data);
+      
+      history.push({
+        pathname: '/tab1/submit',
+        state: { detail: JSON.stringify({"coffee":"Cappuccino"}) }
+      
+      });
+    };
+
+    const submitShortBlack: SubmitHandler<IFormInput> = data => {
+      console.log(data);
+      
+      history.push({
+        pathname: '/tab1/submit',
+        state: { detail: JSON.stringify({"coffee":"Cappuccino"}) }
+      
+      });
+    };
+
+
 
   return (
     <IonPage>
@@ -86,6 +127,63 @@ const Tab1: React.FC = () => {
             <IonButton expand="block" type="submit" >Select</IonButton>
           </form>
         </IonCard>
+
+        <IonCard>
+          <IonItem>
+            <img src={require('./espresso-icon.jpg')} alt="espresso in a cup" height="50px"/>
+          <IonCardHeader>
+            <IonCardTitle>Cappuccino</IonCardTitle>
+            <IonCardSubtitle>$4</IonCardSubtitle>
+          </IonCardHeader>
+          </IonItem>
+          <form onSubmit={handleSubmit(submitCappuccino)}>
+            <input type='hidden' value="Cappuccino" {...register("coffee")}/> 
+            <IonButton expand="block" type="submit" >Select</IonButton>
+          </form>
+        </IonCard>
+
+        <IonCard>
+          <IonItem>
+            <img src={require('./espresso-icon.jpg')} alt="espresso in a cup" height="50px"/>
+          <IonCardHeader>
+            <IonCardTitle>Long Black</IonCardTitle>
+            <IonCardSubtitle>$4</IonCardSubtitle>
+          </IonCardHeader>
+          </IonItem>
+          <form onSubmit={handleSubmit(submitLongBlack)}>
+            <input type='hidden' value="Long Black" {...register("coffee")}/> 
+            <IonButton expand="block" type="submit" >Select</IonButton>
+          </form>
+        </IonCard>
+
+        <IonCard>
+          <IonItem>
+            <img src={require('./espresso-icon.jpg')} alt="espresso in a cup" height="50px"/>
+          <IonCardHeader>
+            <IonCardTitle>Short Black</IonCardTitle>
+            <IonCardSubtitle>$4</IonCardSubtitle>
+          </IonCardHeader>
+          </IonItem>
+          <form onSubmit={handleSubmit(submitShortBlack)}>
+            <input type='hidden' value="Short Black" {...register("coffee")}/> 
+            <IonButton expand="block" type="submit" >Select</IonButton>
+          </form>
+        </IonCard>
+
+        <IonCard>
+          <IonItem>
+            <img src={require('./espresso-icon.jpg')} alt="espresso in a cup" height="50px"/>
+          <IonCardHeader>
+            <IonCardTitle>Hot Chocalate</IonCardTitle>
+            <IonCardSubtitle>$4</IonCardSubtitle>
+          </IonCardHeader>
+          </IonItem>
+          <form onSubmit={handleSubmit(submitHotChocolate)}>
+            <input type='hidden' value="Flat White" {...register("coffee")}/> 
+            <IonButton expand="block" type="submit" >Select</IonButton>
+          </form>
+        </IonCard>
+
       </IonContent>
     </IonPage>
   );
