@@ -26,11 +26,12 @@ import {
 
 } from '@ionic/react';
 import './Home.css';
-
+const url = "http://128.199.137.91:3000";
 
 
 class Home extends Component {
 
+  
   state = {
     unfilledOrders: [],
     readyOrders: [],
@@ -39,21 +40,21 @@ class Home extends Component {
   };
 
   getOrders = () => {
-    fetch('http://localhost:3000/unfilled')
+    fetch(url+'/unfilled')
     .then(res => res.json())
     .then((data) => {
       this.setState({ unfilledOrders: data })
     })
     .catch(console.log)
 
-    fetch('http://localhost:3000/inprogress')
+    fetch(url+'/inprogress')
     .then(res => res.json())
     .then((data) => {
       this.setState({ readyOrders: data })
     })
     .catch(console.log)
 
-    fetch('http://localhost:3000/finished')
+    fetch(url+'/finished')
     .then(res => res.json())
     .then((data) => {
       this.setState({ finishedOrders: data })

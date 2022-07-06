@@ -32,12 +32,15 @@ interface IFormInput {
   currentStatus: number;
 }
 
+const url = "http://128.199.137.91:3000";
+
+
 const Orders = ({ orders }: {orders:any}) => {
   var { control, register, handleSubmit, formState: { errors }} = useForm<IFormInput>();
 
   var onSubmit: SubmitHandler<IFormInput> = data => {
     console.log(data);
-    /*fetch('http://localhost:3000/update', {
+    /*fetch(url+'/update', {
       method: 'POST',
       mode: 'cors',
       headers: {'Content-Type': 'application/json'},
@@ -70,7 +73,7 @@ const Orders = ({ orders }: {orders:any}) => {
                         status: (order.status - 1)
                       }
                       
-                      fetch('http://localhost:3000/update', {
+                      fetch(url+'/update', {
                       method: 'POST',
                       mode: 'cors',
                       headers: {'Content-Type': 'application/json'},
@@ -90,7 +93,7 @@ const Orders = ({ orders }: {orders:any}) => {
                         status: (order.status + 1)
                       }
                       
-                      fetch('http://localhost:3000/update', {
+                      fetch(url+'/update', {
                       method: 'POST',
                       mode: 'cors',
                       headers: {'Content-Type': 'application/json'},
