@@ -1,0 +1,6 @@
+{
+	"appId": "com.hargest.coffee",
+	"appName": "Hargest Coffee Company",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}

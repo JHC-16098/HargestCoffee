@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'CustomerClient',
+  appId: 'com.hargest.coffee',
+  appName: 'Hargest Coffee Company',
   webDir: 'build',
   bundledWebRuntime: false
 };

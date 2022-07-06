@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0a914afa.css",
+    "main.js": "/static/js/main.38e27490.js",
+    "static/js/630.2a3ba524.chunk.js": "/static/js/630.2a3ba524.chunk.js",
+    "static/js/738.baa92709.chunk.js": "/static/js/738.baa92709.chunk.js",
+    "static/js/372.9a638359.chunk.js": "/static/js/372.9a638359.chunk.js",
+    "static/js/856.03eb7c46.chunk.js": "/static/js/856.03eb7c46.chunk.js",
+    "static/js/22.bda2db98.chunk.js": "/static/js/22.bda2db98.chunk.js",
+    "static/js/851.d6dba57a.chunk.js": "/static/js/851.d6dba57a.chunk.js",
+    "static/js/215.7fb364a6.chunk.js": "/static/js/215.7fb364a6.chunk.js",
+    "static/js/841.89203b18.chunk.js": "/static/js/841.89203b18.chunk.js",
+    "static/js/186.0cb93a82.chunk.js": "/static/js/186.0cb93a82.chunk.js",
+    "static/js/377.7385e010.chunk.js": "/static/js/377.7385e010.chunk.js",
+    "static/media/espresso-icon.jpg": "/static/media/espresso-icon.501616025b1781f113b1.jpg",
+    "service-worker.js": "/service-worker.js",
+    "index.html": "/index.html",
+    "main.0a914afa.css.map": "/static/css/main.0a914afa.css.map",
+    "main.38e27490.js.map": "/static/js/main.38e27490.js.map",
+    "630.2a3ba524.chunk.js.map": "/static/js/630.2a3ba524.chunk.js.map",
+    "738.baa92709.chunk.js.map": "/static/js/738.baa92709.chunk.js.map",
+    "372.9a638359.chunk.js.map": "/static/js/372.9a638359.chunk.js.map",
+    "856.03eb7c46.chunk.js.map": "/static/js/856.03eb7c46.chunk.js.map",
+    "22.bda2db98.chunk.js.map": "/static/js/22.bda2db98.chunk.js.map",
+    "851.d6dba57a.chunk.js.map": "/static/js/851.d6dba57a.chunk.js.map",
+    "215.7fb364a6.chunk.js.map": "/static/js/215.7fb364a6.chunk.js.map",
+    "841.89203b18.chunk.js.map": "/static/js/841.89203b18.chunk.js.map",
+    "186.0cb93a82.chunk.js.map": "/static/js/186.0cb93a82.chunk.js.map",
+    "377.7385e010.chunk.js.map": "/static/js/377.7385e010.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a914afa.css",
+    "static/js/main.38e27490.js"
+  ]
+}
