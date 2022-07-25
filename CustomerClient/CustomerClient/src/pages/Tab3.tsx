@@ -32,7 +32,7 @@ const Tab3: React.FC = () => {
           </IonCardHeader>
           
           <IonCardContent>
-            CustomerClient v0.1 <br />
+            CustomerClient v1.0 <br />
             Developed by Max Russell
 
 

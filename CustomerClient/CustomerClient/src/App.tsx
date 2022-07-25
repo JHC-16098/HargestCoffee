@@ -81,6 +81,10 @@ const App: React.FC = () => (
           <Route exact path="/tab1/submit/confirmed">
             <Confirmed />
           </Route>
+      <Route exact path="/">
+        <Redirect to="/tab1"/>
+        <Tab1 />
+      </Route>
     </IonReactRouter>
   </IonApp>
 );
