@@ -26,7 +26,7 @@ import {
 
 } from '@ionic/react';
 import './Home.css';
-const url = "http://128.199.137.91:443";
+const url = "http://128.199.137.91:80";
 
 
 class Home extends Component {
