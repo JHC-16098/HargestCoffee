@@ -10,7 +10,7 @@ import { useHistory } from "react-router";
 const Confirmed: React.FC = () => {
   
   const history = useHistory();
-  const url = 'http://128.199.137.91:3000';
+  const url = 'http://128.199.137.91:443';
 
   const location: any = useLocation();
   var orderData:any;
