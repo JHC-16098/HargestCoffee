@@ -174,12 +174,12 @@ const Tab1: React.FC = () => {
           <IonItem>
             <img src={require('./espresso-icon.jpg')} alt="espresso in a cup" height="50px"/>
           <IonCardHeader>
-            <IonCardTitle>Hot Chocalate</IonCardTitle>
+            <IonCardTitle>Hot Chocolate</IonCardTitle>
             <IonCardSubtitle>$4</IonCardSubtitle>
           </IonCardHeader>
           </IonItem>
           <form onSubmit={handleSubmit(submitHotChocolate)}>
-            <input type='hidden' value="Flat White" {...register("coffee")}/> 
+            <input type='hidden' value="Hot Chocolate" {...register("coffee")}/> 
             <IonButton expand="block" type="submit" >Select</IonButton>
           </form>
         </IonCard>

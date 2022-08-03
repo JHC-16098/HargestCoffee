@@ -78,7 +78,7 @@ app.post('/submit', (req, res) => {
     values = [req.body.name, req.body.coffee, req.body.quantity, req.body.milk, req.body.shot, 0];
     console.log("Submitting Order: "+values);
     pool.query('INSERT INTO orders(name, coffee, quantity, milk, shot, status) VALUES($1, $2, $3, $4, $5, $6)', values);
-    
+    res.send({"status":"submitted"});
 })
 
 app.post('/update', (req, res) => {

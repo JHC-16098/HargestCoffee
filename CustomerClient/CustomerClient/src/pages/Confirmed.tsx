@@ -10,7 +10,7 @@ import { useHistory } from "react-router";
 const Confirmed: React.FC = () => {
   
   const history = useHistory();
-  const url = 'http://128.199.137.91:80';
+  const url = 'http://localhost:3000';
 
   const location: any = useLocation();
   var orderData:any;
@@ -25,6 +25,8 @@ const Confirmed: React.FC = () => {
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify(orderData)
         })
+        .then((data) => console.log(data))
+        
     
   }) 
 
