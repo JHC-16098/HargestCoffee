@@ -26,13 +26,14 @@ import {
 
 } from '@ionic/react';
 import './Home.css';
-const url = "http://128.199.137.91:80";
+const url = "http://node.barista.jhc.school.nz";
 
 
 class Home extends Component {
 
   
   state = {
+    allOrders: [],
     unfilledOrders: [],
     readyOrders: [],
     finishedOrders: []
@@ -40,6 +41,8 @@ class Home extends Component {
   };
 
   getOrders = () => {
+    //this.forceUpdate();
+/*
     fetch(url+'/unfilled')
     .then(res => res.json())
     .then((data) => {
@@ -60,11 +63,61 @@ class Home extends Component {
       this.setState({ finishedOrders: data })
     })
     .catch(console.log)
+*/
+    
+    var resData:any = {};
+
+    fetch(url+'/ClientOrders')
+        .then(res => res.json())
+        .then((data) => {
+          this.setState({ allOrders: data})
+        })
+        .catch(console.log) 
+    
+    var unfilledArr: any = [];
+    var inprogressArr:any = [];
+    var readyArr:any = [];
+
+    this.state.allOrders.forEach(function(jsonOrder) {
+        var orderString = JSON.stringify(jsonOrder);
+        
+        if(orderString.includes("0}"))
+        {
+          unfilledArr.push(jsonOrder);
+        }
+
+        
+        if(orderString.includes("1}"))
+        {
+          inprogressArr.push(jsonOrder);
+        }
+
+   
+        if(orderString.includes("2}"))
+        {
+          readyArr.push(jsonOrder);
+        }
+    })
+
+    this.setState({ unfilledOrders: unfilledArr});
+    this.setState({ readyOrders: inprogressArr});
+    this.setState({ finishedOrders: readyArr});
+    /*
+    console.log(unfilledArr);
+    console.log(inprogressArr);
+    console.log(readyArr);
+    */
+
+    //console.log(arrays);
   };
 
 componentDidMount() {
   this.getOrders();
-  setInterval(this.getOrders, 500);
+  setInterval(this.getOrders, 200);
+}
+
+componentWillUnmount() {
+  clearInterval();
 }
 
 

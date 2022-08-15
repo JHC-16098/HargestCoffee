@@ -97,6 +97,13 @@ app.get('/eta', (req, res, next) => {
         })
 })
 
+app.get('/ClientOrders', (req, res, next) => {
+    pool.query('SELCT * FROM orders')
+        .then(data =>{
+            res.send(data.rows);
+        })
+})
+
 const server = app.listen(3000, function () {
     let host = server.address().address
     let port = server.address().port

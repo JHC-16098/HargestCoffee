@@ -10,7 +10,7 @@ import { useHistory } from "react-router";
 const Confirmed: React.FC = () => {
   
   const history = useHistory();
-  const url = 'http://localhost:3000';
+  const url = 'http://node.barista.jhc.school.nz';
 
   const location: any = useLocation();
   var orderData:any;

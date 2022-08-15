@@ -27,12 +27,14 @@ import {
 
   import { arrowForwardCircleOutline, arrowBackCircleOutline } from 'ionicons/icons';
 
+  
+
 interface IFormInput {
   id: number;
   currentStatus: number;
 }
 
-const url = "http://128.199.137.91:80";
+const url = "http://node.barista.jhc.school.nz";
 
 
 const Orders = ({ orders }: {orders:any}) => {
@@ -68,6 +70,7 @@ const Orders = ({ orders }: {orders:any}) => {
                     
                     <IonButton type='submit' onClick={() => {
                       console.log(order.id + ", " + order.status)
+                      
                       var jsonToSend = {
                         id: order.id,
                         status: (order.status - 1)
@@ -98,8 +101,10 @@ const Orders = ({ orders }: {orders:any}) => {
                       mode: 'cors',
                       headers: {'Content-Type': 'application/json'},
                       body: JSON.stringify(jsonToSend)
+
+                      
                     });
-                    
+                  
                     }
                     }>
                       Next
