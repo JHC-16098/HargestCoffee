@@ -86,6 +86,7 @@ app.post('/update', (req, res) => {
     var updateData = [req.body.id, req.body.status];
     console.log("Updating Order: "+ updateData[0] + " To Status: " + updateData[1]);
     pool.query("UPDATE orders SET status=$2 WHERE id=$1", updateData);
+    res.end();
 })
 
 app.get('/eta', (req, res, next) => {
